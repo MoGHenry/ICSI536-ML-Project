@@ -29,6 +29,16 @@ X_dev = train[1:n]
 # b1 shape (1, hidden_size)
 # w2 shape (hidden_size, output_size)
 # b2 shape (1, output_size)
+def initialize_parameters(input_size, hidden_size, output_size):
+    if func_type == 1
+        return he_initialize_parameters(input_size, hidden_size, output_size)
+    if func_type == 2
+        return std_initialize_parameters(input_size, hidden_size, output_size)   
+    if func_type == 3
+        return std_initialize_parameters(input_size, hidden_size, output_size)
+    if func_type == 4
+        return std_initialize_parameters(input_size, hidden_size, output_size)
+
 def std_initialize_parameters(input_size, hidden_size, output_size):
     w1 = randn(hidden_size, input_size)
     b1 = zeros(hidden_size, 1)
@@ -147,7 +157,12 @@ def gradient_descent(x, y, w1, b1, w2, b2, learning_rate, num_iterations):
     return w1, b1, w2, b2
 
 def make_prediction(X, w1, b1, w2, b2):
-    return
+    A2 = forward_prop(W1, b1, W2, b2, X)
+    return get_predictions(A2)
 
 def test_model(X, y, w1, b1, w2, b2):
-    return
+    current_image = X[:, index, None]
+    prediction = make_predictions(current_image, w1, b1, w2, b2)
+    label = Y
+    print("Prediction: ", prediction)
+    print("Label: ", label)
