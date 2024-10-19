@@ -8,16 +8,26 @@ import numpy as np
 # b1 shape (1, hidden_size)
 # w2 shape (hidden_size, output_size)
 # b2 shape (1, output_size)
-def initialize_parameters(input_size, hidden_size, output_size):
-    return
+def std_initialize_parameters(input_size, hidden_size, output_size):
+    w1 = randn(hidden_size, input_size)
+    b1 = zeros(hidden_size, 1)
+    w2 = randn(output_size, hidden_size)
+    b2 = zeros(output_size, 1)
+    return w1, b1, w2, b2
 
+def he_initialize_parameters(input_size, hidden_size, output_size):
+    w1 = randn(hidden_size, input_size) * sqrt(2/ input_size)
+    b1 = zeros(hidden_size, 1)
+    w2 = randn(output_size, hidden_size) * sqrt(2/ hidden_size)
+    b2 = zeros(output_size, 1)
+    return w1, b1, w2, b2
 
 # forward propagation
 # calculate z1, a1, z2, a2
 # return
 def forward_propagation(x, w1, b1, w2, b2):
     z1 = w1*x + b1
-    a1 = Sigmoid(z1)
+    a1 = activation_function_xxx(z1)
     z2 = w2*x + b2
     a2 = SoftMax(z2)
     return z1, a1, z2, a2
